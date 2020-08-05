@@ -1,7 +1,7 @@
 server: 
   port: 8091
   tomcat:
-    max-threads: 10
+    max-threads: 4
 logging:
     level: 
         org.springframework: warn
