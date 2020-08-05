@@ -24,7 +24,7 @@ CREATE TABLE `mayday_article` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `MAYDAY_ARTICLE_URL` (`article_url`) USING BTREE,
   KEY `MAYDAY_ARTICLE_USERID` (`user_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=146 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_article_category
@@ -63,7 +63,7 @@ CREATE TABLE `mayday_attachment` (
   `picture_suffix` varchar(255) DEFAULT NULL COMMENT '后缀',
   `picture_wh` varchar(255) DEFAULT NULL COMMENT '尺寸',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_category
@@ -75,7 +75,7 @@ CREATE TABLE `mayday_category` (
   `category_url` varchar(255) DEFAULT NULL COMMENT '分类路径',
   `category_describe` varchar(255) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_link
@@ -88,7 +88,7 @@ CREATE TABLE `mayday_link` (
   `link_logo` varchar(255) DEFAULT NULL COMMENT '链接logo',
   `link_describe` varchar(255) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`link_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_logs
@@ -101,7 +101,7 @@ CREATE TABLE `mayday_logs` (
   `log_ip` varchar(255) DEFAULT NULL COMMENT 'ip',
   `log_date` datetime DEFAULT NULL COMMENT '时间',
   PRIMARY KEY (`log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=892 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_menu
@@ -115,7 +115,7 @@ CREATE TABLE `mayday_menu` (
   `menu_target` varchar(255) DEFAULT NULL COMMENT '打开方式',
   `menu_url` varchar(255) DEFAULT NULL COMMENT '菜单路径',
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_options
@@ -136,7 +136,7 @@ CREATE TABLE `mayday_tag` (
   `tag_name` varchar(255) DEFAULT NULL COMMENT '标签名称',
   `tag_url` varchar(255) DEFAULT NULL COMMENT '标签路径',
   PRIMARY KEY (`tag_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_theme
@@ -150,7 +150,7 @@ CREATE TABLE `mayday_theme` (
   `theme_status` int(11) DEFAULT '0' COMMENT '0未启用1已启用',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for mayday_user
@@ -168,4 +168,4 @@ CREATE TABLE `mayday_user` (
   `user_name` varchar(255) DEFAULT NULL COMMENT '用户名',
   `user_pwd` varchar(255) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
