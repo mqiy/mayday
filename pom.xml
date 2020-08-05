@@ -57,28 +57,27 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+			<version>8.0.20</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- 日志 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
-		<!-- 热部署 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-			<scope>true</scope>
-		</dependency>
+		
+		
 		<!-- druid数据库连接池 -->
 		<!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
 		<dependency>
@@ -86,7 +85,8 @@
 			<artifactId>druid</artifactId>
 			<version>${druid.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		
+
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
@@ -97,13 +97,14 @@
 			<artifactId>pagehelper</artifactId>
 			<version>${pagehelper.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-autoconfigure -->
+		
+
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
 			<version>1.2.7</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper-spring-boot-starter -->
+		
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
@@ -116,7 +117,7 @@
 			<artifactId>hutool-all</artifactId>
 			<version>${hutool-all.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -127,6 +128,7 @@
 			<!-- 此包一般在Servlet容器中都有提供 -->
 			<scope>provided</scope>
 		</dependency>
+		
 		<!--缩略图生成库 -->
 		<!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
 		<dependency>
@@ -134,7 +136,8 @@
 			<artifactId>thumbnailator</artifactId>
 			<version>${thumbnailator.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
+		
+
 		<dependency>
 			<groupId>org.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
@@ -145,6 +148,7 @@
 			<artifactId>MDTool</artifactId>
 			<version>${MDTool.version}</version>
 		</dependency>
+		
 		<!-- rss -->
 		<dependency>
 			<groupId>rome</groupId>
