@@ -30,7 +30,7 @@ public interface ArticleService {
 	 * 不分页查询所有文章
 	 * 
 	 * @param status
-	 * @param string 
+	 * @param post
 	 * @return
 	 */
 	List<ArticleCustom> findAllArticle(int status, String post);
@@ -125,25 +125,25 @@ public interface ArticleService {
 	 * @param status 文章状态
 	 * @return
 	 */
-	PageInfo<ArticleCustom> findArtileByCategory(int page, int limit, Category category, int status);
+	PageInfo<ArticleCustom> findArticleByCategory(int page, int limit, Category category, int status);
 
 	/**
 	 * 分页查询标签下的所有文章
 	 * 
 	 * @param page
-	 * @param size
+	 * @param limit
 	 * @param tag
 	 * @param status 文章状态
 	 * @return
 	 */
-	PageInfo<ArticleCustom> findArtileByTag(Integer page, Integer limit, Tag tag, int status);
+	PageInfo<ArticleCustom> findArticleByTag(Integer page, Integer limit, Tag tag, int status);
 
 	/**
 	 * 标题分页搜索文章
 	 * 
 	 * @param keywords
 	 * @param page
-	 * @param size
+	 * @param limit
 	 * @return
 	 */
 	PageInfo<Article> findArticleByKeywords(String keywords, Integer page, Integer limit);
