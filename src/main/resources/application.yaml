@@ -2,9 +2,9 @@ server:
   port: 8091 
 logging:
     level: 
-        org.springframework: info
-        data: DEBUG
-        security: DEBUG
+        org.springframework: warn
+        data: info
+        security: info
     config: classpath:logback-spring.xml
 spring: 
   mvc:
