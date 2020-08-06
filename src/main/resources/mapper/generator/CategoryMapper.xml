@@ -99,11 +99,11 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.songhaozhi.mayday.model.domain.Category" useGeneratedKeys="true" keyProperty="category_id">
-    insert into mayday_category (category_name, category_url,
-      category_describe)
-    values ( #{categoryName,jdbcType=VARCHAR}, #{categoryUrl,jdbcType=VARCHAR},
-      #{categoryDescribe,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.songhaozhi.mayday.model.domain.Category">
+    insert into mayday_category (category_id, category_name, category_url,
+    category_describe)
+    values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryUrl,jdbcType=VARCHAR},
+    #{categoryDescribe,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.songhaozhi.mayday.model.domain.Category">
     insert into mayday_category
