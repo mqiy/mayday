@@ -134,8 +134,13 @@
                             li = document.createElement('li');
                             link = document.createElement('a');
                             link.href = '#' + titleId[i];
-                            link.innerHTML = !isDirNum ? contentArr[i] :
-                            dirNum.join('.') + ' ' + contentArr[i];
+                            var dirTitle='';
+                            if(contentArr[i].length>36){
+                                dirTitle = contentArr[i].substring(0,30)+'...';　
+                            }else{
+                                dirTitle=  contentArr[i];
+                            }
+                            link.innerHTML = !isDirNum ? dirTitle : dirNum.join('.') + ' ' + dirTitle;
                             li.appendChild(link);
                             currentList.appendChild(li);
                         }
