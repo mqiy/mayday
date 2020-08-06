@@ -53,18 +53,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 	}
 
-	/**
-	 * 文件上传配置
-	 * 
-	 * @return
-	 */
-	@Bean
-	public MultipartConfigElement multipartConfigElement() {
-		MultipartConfigFactory factory = new MultipartConfigFactory();
-		// 单个文件最大 KB,MB
-		factory.setMaxFileSize("10240KB");
-		/// 设置总上传数据总大小
-		factory.setMaxRequestSize("102400KB");
-		return factory.createMultipartConfig();
-	}
 }
