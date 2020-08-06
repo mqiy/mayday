@@ -1,33 +1,48 @@
-server: 
+server:
   port: 8091
   tomcat:
     max-threads: 4
 logging:
-    level: 
-        org.springframework: warn
-        data: info
-        security: info
-    config: classpath:logback-spring.xml
-spring: 
+  level:
+    org.springframework: warn
+    data: info
+    security: info
+  config: classpath:logback-spring.xml
+spring:
+
+  servlet:
+    multipart:
+      max-file-size: '100MB'
+      max-request-size: '100MB'
   mvc:
     static-path-pattern: /**
-  thymeleaf: 
+  thymeleaf:
     servlet:
       content-type: text/html
     encoding: UTF-8
-    cache: true
-  datasource: 
-         type: com.alibaba.druid.pool.DruidDataSource
-         url: jdbc:mysql://localhost:3306/myday?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
-         username: root 
-         password: Admin123#
-         driver-class-name: com.mysql.cj.jdbc.Driver
-mybatis: 
+    cache: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/myday?serverTimezone=Asia/Shanghai&useUnicode=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=utf-8
+    username: root
+    password: Admin123#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      auto-commit: true
+      connection-test-query: SELECT 1
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 28740000
+      maximum-pool-size: 5
+      minimum-idle: 3
+      pool-name: DatebookHikariCP
+
+mybatis:
   typeAliasesPackage: com.songhaozhi.mayday.model.domain
   mapperLocations: classpath:mapper/*/*.xml
   configuration:
     map-underscore-to-camel-case: true
-pagehelper: 
+pagehelper:
   helper-dialect: mysql
   reasonable: true
   support-methods-arguments: true
