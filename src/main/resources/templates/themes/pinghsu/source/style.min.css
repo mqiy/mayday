@@ -974,7 +974,7 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder {
 	font-weight:600;
 	display:inline-block;
 	margin:4px 8px 0 0;
-	padding:0 15px;
+	padding:6px 19px;
 	-webkit-transition-duration:.4s;
 	transition-duration:.4s;
 	letter-spacing:0

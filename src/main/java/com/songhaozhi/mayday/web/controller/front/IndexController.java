@@ -176,7 +176,7 @@ public class IndexController extends BaseController {
 	/**
 	 * 自建页面
 	 * 
-	 * @param pagename
+	 * @param articleUrl
 	 * @param model
 	 * @return
 	 */
@@ -220,6 +220,53 @@ public class IndexController extends BaseController {
 		model.addAttribute("keywords", category.getCategoryName());
 		return this.render("page-category");
 	}
+
+
+	/**
+	 * 标签列表
+	 *
+	 * @return
+	 */
+	@GetMapping(value = "tags")
+	public String showTags(Model model) {
+
+		List<Tag> tagList = tagService.findTags();
+		StringBuffer nameBuffer = new StringBuffer();
+		StringBuffer urlBuffer = new StringBuffer();
+		for(Tag tag:tagList){
+			nameBuffer.append(tag.getTagName());
+			nameBuffer.append(",");
+			urlBuffer.append(tag.getTagUrl());
+			urlBuffer.append(",");
+		}
+		model.addAttribute("tagsUrl", urlBuffer.toString());
+		model.addAttribute("tagsName", nameBuffer.toString());
+		model.addAttribute("keywords","标签列表");
+		return this.render("tags");
+	}
+	/**
+	 * 分类列表
+	 *
+	 * @return
+	 */
+	@GetMapping(value = "categories")
+	public String showCategories(Model model) {
+
+		List<Category> tagList = categoryService.findCategory();
+		StringBuffer nameBuffer = new StringBuffer();
+		StringBuffer urlBuffer = new StringBuffer();
+		for(Category category:tagList){
+			nameBuffer.append(category.getCategoryName());
+			nameBuffer.append(",");
+			urlBuffer.append(category.getCategoryUrl());
+			urlBuffer.append(",");
+		}
+		model.addAttribute("categoriesUrl", urlBuffer.toString());
+		model.addAttribute("categoriesName", nameBuffer.toString());
+		model.addAttribute("keywords","分类列表");
+		return this.render("categories");
+	}
+
 
 	/**
 	 * 标签页

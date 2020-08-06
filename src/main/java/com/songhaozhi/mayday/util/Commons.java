@@ -59,8 +59,8 @@ public class Commons {
 	/**
 	 * 显示标签
 	 * 
-	 * @param categorysUrl
-	 * @param categorysName
+	 * @param tagsUrl
+	 * @param tagsName
 	 * @return
 	 * @throws Exception
 	 */
