@@ -44,8 +44,10 @@
 		resultType="com.songhaozhi.mayday.model.domain.ArticleCustom" parameterType="com.songhaozhi.mayday.model.domain.ArticleCustom">
 			SELECT
 			ma.*,
+			GROUP_CONCAT(distinct mc.category_id ) AS categorys,
 			GROUP_CONCAT(distinct mc.category_name ) AS categorysName,
 			GROUP_CONCAT(distinct mc.category_url ) AS categorysUrl,
+			GROUP_CONCAT(distinct mt.tag_id ) AS tags,
 			GROUP_CONCAT(distinct mt.tag_name ) AS tagsName,
 			GROUP_CONCAT(distinct mt.tag_url ) AS tagsUrl
 			FROM
