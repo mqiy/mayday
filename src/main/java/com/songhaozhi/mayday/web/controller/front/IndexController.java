@@ -1,16 +1,7 @@
 package com.songhaozhi.mayday.web.controller.front;
 
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.servlet.ServletUtil;
 import com.github.pagehelper.PageInfo;
 import com.songhaozhi.mayday.model.domain.Article;
 import com.songhaozhi.mayday.model.domain.ArticleCustom;
@@ -29,9 +20,19 @@ import com.songhaozhi.mayday.service.TagService;
 import com.songhaozhi.mayday.util.MaydayUtil;
 import com.songhaozhi.mayday.web.controller.admin.BaseController;
 import com.sun.syndication.io.FeedException;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.servlet.ServletUtil;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @author : 宋浩志
@@ -112,6 +113,80 @@ public class IndexController extends BaseController {
 			updateArticleViews(articleCustom.getId(), articleCustom.getArticleViews());
 		}
 		model.addAttribute("article", articleCustom);
+		
+		
+
+		List<ArticleCustom>  allRelationList = new ArrayList<>();
+
+
+		List<ArticleCustom>  relations = new ArrayList<>();
+
+		Integer limit = PageNumber.POST_INDEX_lIMIT.getLimit();
+
+		if(StringUtils.isNotEmpty(articleCustom.getCategorys())){
+			Category category =  categoryService.findByCategoryId(Integer.parseInt(articleCustom.getCategorys().split(",")[0]));
+			PageInfo<ArticleCustom> info = articleService.findArticleByCategory(1, limit, category, ArticleStatus.PUBLISH.getStatus());
+			allRelationList.addAll(info.getList());
+		}
+
+		if(CollectionUtils.isEmpty(allRelationList)){
+			if(StringUtils.isNotEmpty(articleCustom.getTags())){
+				Tag tag =  tagService.findByTagId(Integer.parseInt(articleCustom.getTags().split(",")[0]));
+				PageInfo<ArticleCustom> info = articleService.findArticleByTag(1, limit, tag, ArticleStatus.PUBLISH.getStatus());
+				allRelationList.addAll(info.getList());
+			}
+		}
+
+
+		//取前各后一条
+		if (!CollectionUtils.isEmpty(allRelationList)) {
+			int index =-1;
+
+			int before=-1;
+			int after = -1;
+
+			for (int i = 0; i < allRelationList.size(); i++) {
+				if(Objects.equals(articleCustom.getId(),allRelationList.get(i).getId())){
+					index = i;
+					break;
+				}
+			}
+
+			//理论上是能找到的
+			if (allRelationList.size() > 2) {
+				if (index == 0) {
+					after = 1;
+				} else if (index == allRelationList.size() - 1) {
+					before = index - 1;
+				} else {
+					before = index - 1;
+
+					after = index + 1;
+				}
+			} else if (allRelationList.size() == 2) {
+				if (index == 0) {
+					after = 1;
+				} else {
+					before = 0;
+				}
+			}
+
+			if(before>-1){
+				ArticleCustom beforeArticle= allRelationList.get(before);
+				beforeArticle.setArticleSummary("上一条");
+				relations.add(beforeArticle);
+			}
+
+			if(after>-1){
+				ArticleCustom afterArticle= allRelationList.get(after);
+				afterArticle.setArticleSummary("下一条");
+				relations.add(afterArticle);
+			}
+		}
+
+
+		model.addAttribute("relations", relations);
+		
 		return this.render("post");
 	}
 
