@@ -92,7 +92,7 @@
 		FROM
 		mayday_article a
 		LEFT JOIN mayday_article_category b ON a.id = b.article_id
-		LEFT JOIN mayday_article_tag c  on   b.article_id = c.article_id
+		LEFT JOIN mayday_article_tag c  ON   a.id = c.article_id
 		WHERE a.id=#{id}
 	</select>
 	
