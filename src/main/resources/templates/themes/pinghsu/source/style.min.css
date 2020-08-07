@@ -983,37 +983,43 @@ input:-ms-input-placeholder,textarea:-ms-input-placeholder {
 	color:#fff;
 	border:1px solid #6fa3ef;
 	border-radius:15px;
-	background:#6fa3ef
+	background:#6fa3ef;
+	margin: 10px 10px;
 }
 .post-tags a:nth-child(2n) {
 	color:#fff;
 	border:1px solid #ff9800;
 	border-radius:15px;
-	background:#ff9800
+	background:#ff9800;
+	margin: 10px 10px;
 }
 .post-tags a:nth-child(3n) {
 	color:#fff;
 	border:1px solid #46c47c;
 	border-radius:15px;
-	background:#46c47c
+	background:#46c47c;
+	margin: 10px 10px;
 }
 .post-tags a:nth-child(4n) {
 	color:#fff;
 	border:1px solid #f9bb3c;
 	border-radius:15px;
-	background:#f9bb3c
+	background:#f9bb3c;
+	margin: 10px 10px;
 }
 .post-tags a:nth-child(5n) {
 	color:#fff;
 	border:1px solid #bc99c4;
 	border-radius:15px;
-	background:#bc99c4
+	background:#bc99c4;
+	margin: 10px 10px;
 }
 .post-tags a:nth-child(6n) {
 	color:#fff;
 	border:1px solid #e8583d;
 	border-radius:15px;
-	background:#e8583d
+	background:#e8583d;
+	margin: 10px 10px;
 }
 .post-tags a::before {
 	content:'# '
