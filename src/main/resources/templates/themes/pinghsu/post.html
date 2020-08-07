@@ -20,6 +20,30 @@
     <div id="post-content" class="post-content" itemprop="articleBody">
         <p class="post-tags" th:utext="${commons.show_tags(article.tagsUrl,article.tagsName)}"></p>
         <th:block th:utext="${article.articleContent}"/>
+	    
+	            <th:block th:unless=" ${#lists.isEmpty(relations)}">
+            <div class="post-lists">
+                <div class="post-lists-body">
+                    <th:block th:each="relation : ${relations}">
+                        <div class="post-list-item">
+                            <div class="post-list-item-container ">
+                                <div class="item-label ">
+                                    <div class="item-title">
+                                        <a th:href="@{'/post/'+${relation.articleUrl}}" th:text="${relation.articleTitle}"></a>
+                                    </div>
+                                    <div class="item-meta clearfix">
+                                        <div th:class="'item-meta-ico '+${commons.show_icon(relation.id)} "
+                                             th:style="'background: url('+@{/img/bg-ico.png}+') no-repeat;background-size: 40px auto;'"></div>
+                                        <div ><strong class="bg-blue"  th:text="${relation.articleSummary}"></strong>发布于 <th:block th:text="${#dates.format(article.articleNewstime,'yyyy-MM-dd')}"/></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </th:block>
+	    
         <p class="post-info">
             本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名,转载请标明出处<br/>最后编辑时间为:
             <th:block th:text="${#dates.format(article.articleUpdatetime,'yyyy/MM/dd HH:mm:ss')}"/>
