@@ -10,7 +10,8 @@
         <div class="post-data">
             <time itemprop="datePublished" th:text="'发布于 '+ ${#dates.format(article.articleNewstime,'yyyy/MM/dd HH:mm:ss')}"></time>
             / <th:block th:utext="${commons.show_categories(article.categorysUrl,article.categorysName)}"/> / <th:block th:text="${article.articleViews == null ? 0 : article.articleViews}+'浏览'"></th:block>
-            	<!-- id 将作为查询条件
+            	||<a th:href="@{'/admin/article/edit?article_id='+${article.id}}"  target="_blank" th:text="编辑"></a>
+		<!-- id 将作为查询条件
 		<span th:id="'/post/'+${article.articleUrl}" class="leancloud-visitors">
     		<em class="post-meta-item-text">阅读量 </em>
   		 	 <i class="leancloud-visitors-count"></i>
