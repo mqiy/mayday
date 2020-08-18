@@ -35,7 +35,7 @@
                                     <div class="item-title">
                                         <a th:href="@{'/post/'+${relation.articleUrl}}" th:text="${relation.articleTitle}"></a>
                                     </div>
-                                    <div class="item-meta clearfix">
+                                    <div class="item-meta clearfix" style="right:-3px;top:98px;" >
                                         <div th:class="'item-meta-ico '+${commons.show_icon(relation.id)} "
                                              th:style="'background: url('+@{/img/bg-ico.png}+') no-repeat;background-size: 40px auto;'"></div>
                                         <div ></strong>发布于 <th:block th:text="${#dates.format(article.articleNewstime,'yyyy-MM-dd')}"/></div>

@@ -19,6 +19,10 @@ html {
 	-ms-text-size-adjust:100%;
 	-webkit-text-size-adjust:100%
 }
+em{
+	color:deeppink;
+        font-style: normal;
+}
 ::-moz-selection {
 	color:#fff;
 	background-color:#eb5055
