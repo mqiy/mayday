@@ -42,7 +42,7 @@ public class ConvertBz {
 
 
     public void convert() {
-        String path = "E:\\blog\\source\\_posts\\md\\problem";
+        String path = "/opt/doc/md";
         File file = new File(path);
         deal(file);
     }
