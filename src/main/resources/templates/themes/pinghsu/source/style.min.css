@@ -20,8 +20,8 @@ html {
 	-webkit-text-size-adjust:100%
 }
 em{
-	color:deeppink;
-        font-style: normal;
+	color:cadetblue;
+    font-style: normal;
 }
 ::-moz-selection {
 	color:#fff;
@@ -125,7 +125,7 @@ code {
 	padding:2px 6px;
 	border-radius:3px;
 	background-color:#f7f7f7;
-	color:cadetblue;
+	color:deeppink;
 }
 pre code {
 	font-size:13px;
