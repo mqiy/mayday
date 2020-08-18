@@ -129,12 +129,12 @@
 	<select id="findArtileByCategory" resultType="com.songhaozhi.mayday.model.domain.ArticleCustom">
 	SELECT * FROM mayday_article WHERE id in 
 	(SELECT article_id FROM mayday_article_category WHERE 
-	category_id=(SELECT category_id FROM mayday_category WHERE category_url=#{category.categoryUrl})) and article_status =#{status}
+	category_id=(SELECT category_id FROM mayday_category WHERE category_url=#{category.categoryUrl})) and article_status =#{status} order by article_newstime desc
 	</select>
 	
 	<select id="findArtileByTag" resultType="com.songhaozhi.mayday.model.domain.ArticleCustom">
 	SELECT * FROM mayday_article WHERE id in 
 	(SELECT article_id FROM mayday_article_tag WHERE 
-	tag_id=(SELECT tag_id FROM mayday_tag WHERE tag_url=#{tag.tagUrl})) and article_status =#{status}
+	tag_id=(SELECT tag_id FROM mayday_tag WHERE tag_url=#{tag.tagUrl})) and article_status =#{status}  order by article_newstime desc
 	</select>
 </mapper>

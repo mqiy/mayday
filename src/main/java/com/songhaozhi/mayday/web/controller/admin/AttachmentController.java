@@ -119,7 +119,7 @@ public class AttachmentController extends BaseController {
 				// 获取用户目录
 				String userPath = System.getProperties().getProperty("user.home") + "/mayday/";
 				// 保存目录
-				StringBuffer hold = new StringBuffer("upload/");
+				StringBuffer hold = new StringBuffer("image/");
 				// 获取时间，以年月创建目录
 				Date date = DateUtil.date();
 				hold.append(DateUtil.thisYear()).append("/").append(DateUtil.thisMonth() + 1).append("/");
