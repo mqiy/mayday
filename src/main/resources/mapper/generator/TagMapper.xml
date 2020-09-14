@@ -5,6 +5,7 @@
     <id column="tag_id" jdbcType="INTEGER" property="tagId" />
     <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
     <result column="tag_url" jdbcType="VARCHAR" property="tagUrl" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    tag_id, tag_name, tag_url
+    tag_id, tag_name, tag_url,sort
   </sql>
   <select id="selectByExample" parameterType="com.songhaozhi.mayday.model.domain.TagExample" resultMap="BaseResultMap">
     select
@@ -99,9 +100,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.songhaozhi.mayday.model.domain.Tag">
-    insert into mayday_tag (tag_id, tag_name, tag_url
+    insert into mayday_tag (tag_id, tag_name, tag_url,sort
     )
-    values (#{tagId,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{tagUrl,jdbcType=VARCHAR}
+    values (#{tagId,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{tagUrl,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER}
     )
   </insert>
   <insert id="insertSelective" parameterType="com.songhaozhi.mayday.model.domain.Tag">
@@ -116,6 +117,10 @@
       <if test="tagUrl != null">
         tag_url,
       </if>
+      <if test="sort != null">
+        sort,
+      </if>
+
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="tagId != null">
@@ -126,6 +131,9 @@
       </if>
       <if test="tagUrl != null">
         #{tagUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

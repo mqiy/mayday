@@ -29,7 +29,9 @@ public class TagServiceImpl implements TagService {
 	@Override
 	@Cacheable(value = TAGS_CACHE_NAME, key = TAGS_CACHE_KEY)
 	public List<Tag> findTags() {
-		return tagMapper.selectByExample(null);
+		TagExample tagExample = new TagExample();
+		tagExample.setOrderByClause(" sort desc");
+		return tagMapper.selectByExample(tagExample);
 	}
 
 	@Override

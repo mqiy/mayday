@@ -353,6 +353,9 @@ public class IndexController extends BaseController {
 		return this.tags(model, tagUrl, 1);
 	}
 
+
+
+
 	@GetMapping(value = "tags/{tagUrl}/{page}")
 	public String tags(Model model, @PathVariable String tagUrl, @PathVariable Integer page) {
 		// 验证是否存在该路径

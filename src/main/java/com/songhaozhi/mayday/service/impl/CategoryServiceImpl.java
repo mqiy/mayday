@@ -30,7 +30,10 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	@Cacheable(value = CATEGORYS_CACHE_NAME, key = CATEGORYS_CACHE_KEY)
 	public List<Category> findCategory() {
-		return categoryMapper.selectByExample(null);
+		CategoryExample categoryExample = new CategoryExample();
+		categoryExample.setOrderByClause("sort desc");
+
+		return categoryMapper.selectByExample(categoryExample);
 	}
 
 	@Override

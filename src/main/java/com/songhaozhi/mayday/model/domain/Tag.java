@@ -17,4 +17,6 @@ public class Tag {
 
 	private String tagUrl;
 
+	private Integer sort;
+
 }

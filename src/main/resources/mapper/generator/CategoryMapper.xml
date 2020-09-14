@@ -6,6 +6,7 @@
     <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
     <result column="category_url" jdbcType="VARCHAR" property="categoryUrl" />
     <result column="category_describe" jdbcType="VARCHAR" property="categoryDescribe" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    category_id, category_name, category_url, category_describe
+    category_id, category_name, category_url, category_describe,sort
   </sql>
   <select id="selectByExample" parameterType="com.songhaozhi.mayday.model.domain.CategoryExample" resultMap="BaseResultMap">
     select
@@ -101,9 +102,9 @@
   </delete>
   <insert id="insert" parameterType="com.songhaozhi.mayday.model.domain.Category">
     insert into mayday_category (category_id, category_name, category_url,
-    category_describe)
+    category_describe,sort)
     values (#{categoryId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR}, #{categoryUrl,jdbcType=VARCHAR},
-    #{categoryDescribe,jdbcType=VARCHAR})
+    #{categoryDescribe,jdbcType=VARCHAR},#{sort,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.songhaozhi.mayday.model.domain.Category">
     insert into mayday_category
@@ -120,6 +121,10 @@
       <if test="categoryDescribe != null">
         category_describe,
       </if>
+      <if test="sort != null">
+        sort,
+      </if>
+
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="categoryId != null">
@@ -134,6 +139,10 @@
       <if test="categoryDescribe != null">
         #{categoryDescribe,jdbcType=VARCHAR},
       </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.songhaozhi.mayday.model.domain.CategoryExample" resultType="java.lang.Long">

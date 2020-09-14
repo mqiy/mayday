@@ -23,4 +23,6 @@ public class Category implements Serializable {
 	private String categoryUrl;
 
 	private String categoryDescribe;
+
+	private Integer sort;
 }
